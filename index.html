@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERLEARN</title>
+
+<p>Created by Zaynobiddinov Akbarshox</p>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d0b;color:#e8f5ed;font-family:Arial,sans-serif}
+header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #193b2a}
+.logo{color:#00ff80;font-size:25px;font-weight:bold}
+nav a{color:#ddd;text-decoration:none;margin-left:25px;cursor:pointer}
+.hero{text-align:center;padding:75px 20px}
+.hero h1{font-size:45px;color:#00ff80}
+.hero p{color:#aaa;font-size:17px}
+.levels{display:flex;justify-content:center;gap:18px;margin-top:35px;flex-wrap:wrap}
+.level{border:0;padding:15px 35px;font-size:16px;font-weight:bold;border-radius:7px;cursor:pointer}
+.easy{background:#00d875;color:#06130b}
+.medium{background:#e7b52d;color:#171000}
+.hard{background:#e43c3c;color:white}
+.container{max-width:1100px;margin:auto;padding:35px 20px}
+.page-title{text-align:center;color:#00ff80}
+.search{display:block;width:100%;padding:14px;margin:25px 0;background:#101b15;border:1px solid #28543a;border-radius:7px;color:white;font-size:16px}
+.commands{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:#101a14;border:1px solid #234832;border-radius:9px;padding:20px}
+.card h3{color:#00ff80;margin-top:0}
+.card p{color:#ccc;line-height:1.5}
+.example{background:#050a07;padding:10px;border-radius:5px;color:#e7b52d;overflow-wrap:anywhere}
+.copy{background:#00c96b;border:0;padding:9px 16px;border-radius:5px;cursor:pointer;margin-top:10px}
+.back{display:block;margin:25px auto;padding:12px 25px;background:#26372d;color:white;border:0;border-radius:6px;cursor:pointer}
+.empty{text-align:center;color:#aaa;display:none}
+footer{text-align:center;padding:25px;color:#777;border-top:1px solid #193b2a}
+#linuxPage,#mediumPage,#hardPage{display:none}
+.diagram{width:100%;height:auto;display:block;margin:15px 0}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CYBERLEARN</div>
+    <nav>
+        <a onclick="showHome()">Home</a>
+        <a onclick="showLinux()">Linux</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero" id="homePage">
+    <h1>Learn Cybersecurity</h1>
+    <p>Kali Linux commandlarini oson va tushunarli tarzda o‘rganing.</p>
+    <div class="levels">
+        <button class="level easy" onclick="showLinux()">ODDIY</button>
+        <button class="level medium" onclick="showMedium()">O‘RTACHA</button>
+        <button class="level hard" onclick="showHard()">QIYIN</button>
+    </div>
+</section>
+
+<!-- ODDIY -->
+<section id="linuxPage" class="container">
+<h1 class="page-title">ODDIY LINUX COMMANDLARI</h1>
+<input class="search" id="easySearch" placeholder="Command qidirish..." oninput="searchCommands('easySearch','easyCommands')">
+<div class="commands" id="easyCommands">
+
+<div class="card"><h3>1. pwd</h3><p>Hozir qaysi katalogda turganingizni ko‘rsatadi.</p><div class="example">pwd</div><button class="copy" onclick="copyText('pwd')">Copy</button></div>
+<div class="card"><h3>2. ls</h3><p>Katalog ichidagi fayl va papkalarni ko‘rsatadi.</p><div class="example">ls</div><button class="copy" onclick="copyText('ls')">Copy</button></div>
+<div class="card"><h3>3. cd</h3><p>Boshqa katalogga o‘tadi.</p><div class="example">cd Desktop</div><button class="copy" onclick="copyText('cd Desktop')">Copy</button></div>
+<div class="card"><h3>4. mkdir</h3><p>Yangi papka yaratadi.</p><div class="example">mkdir test</div><button class="copy" onclick="copyText('mkdir test')">Copy</button></div>
+<div class="card"><h3>5. touch</h3><p>Yangi bo‘sh fayl yaratadi.</p><div class="example">touch file.txt</div><button class="copy" onclick="copyText('touch file.txt')">Copy</button></div>
+<div class="card"><h3>6. rm</h3><p>Faylni o‘chiradi. Ehtiyotkorlik bilan ishlating.</p><div class="example">rm file.txt</div><button class="copy" onclick="copyText('rm file.txt')">Copy</button></div>
+<div class="card"><h3>7. cp</h3><p>Fayldan nusxa oladi.</p><div class="example">cp a.txt b.txt</div><button class="copy" onclick="copyText('cp a.txt b.txt')">Copy</button></div>
+<div class="card"><h3>8. mv</h3><p>Faylni ko‘chiradi yoki nomini o‘zgartiradi.</p><div class="example">mv a.txt b.txt</div><button class="copy" onclick="copyText('mv a.txt b.txt')">Copy</button></div>
+<div class="card"><h3>9. cat</h3><p>Fayl ichidagi matnni ko‘rsatadi.</p><div class="example">cat file.txt</div><button class="copy" onclick="copyText('cat file.txt')">Copy</button></div>
+<div class="card"><h3>10. echo</h3><p>Terminalga matn chiqaradi.</p><div class="example">echo Hello</div><button class="copy" onclick="copyText('echo Hello')">Copy</button></div>
+<div class="card"><h3>11. clear</h3><p>Terminal ekranini tozalaydi.</p><div class="example">clear</div><button class="copy" onclick="copyText('clear')">Copy</button></div>
+<div class="card"><h3>12. whoami</h3><p>Joriy foydalanuvchi nomini ko‘rsatadi.</p><div class="example">whoami</div><button class="copy" onclick="copyText('whoami')">Copy</button></div>
+<div class="card"><h3>13. date</h3><p>Sana va vaqtni ko‘rsatadi.</p><div class="example">date</div><button class="copy" onclick="copyText('date')">Copy</button></div>
+<div class="card"><h3>14. cal</h3><p>Kalendarni ko‘rsatadi.</p><div class="example">cal</div><button class="copy" onclick="copyText('cal')">Copy</button></div>
+<div class="card"><h3>15. man</h3><p>Command haqida qo‘llanmani ochadi.</p><div class="example">man ls</div><button class="copy" onclick="copyText('man ls')">Copy</button></div>
+<div class="card"><h3>16. help</h3><p>Ba’zi buyruqlar uchun yordam ko‘rsatadi.</p><div class="example">help</div><button class="copy" onclick="copyText('help')">Copy</button></div>
+<div class="card"><h3>17. history</h3><p>Oldin ishlatilgan buyruqlarni ko‘rsatadi.</p><div class="example">history</div><button class="copy" onclick="copyText('history')">Copy</button></div>
+<div class="card"><h3>18. uname</h3><p>Tizim haqida ma’lumot beradi.</p><div class="example">uname -a</div><button class="copy" onclick="copyText('uname -a')">Copy</button></div>
+<div class="card"><h3>19. hostname</h3><p>Kompyuter nomini ko‘rsatadi.</p><div class="example">hostname</div><button class="copy" onclick="copyText('hostname')">Copy</button></div>
+<div class="card"><h3>20. ping</h3><p>Tarmoqdagi qurilmaga ulanishni tekshiradi.</p><div class="example">ping -c 4 example.com</div><button class="copy" onclick="copyText('ping -c 4 example.com')">Copy</button></div>
+<div class="card"><h3>21. sudo</h3><p>Buyruqni administrator huquqi bilan bajaradi.</p><div class="example">sudo apt update</div><button class="copy" onclick="copyText('sudo apt update')">Copy</button></div>
+<div class="card"><h3>22. apt update</h3><p>Paketlar ro‘yxatini yangilaydi.</p><div class="example">sudo apt update</div><button class="copy" onclick="copyText('sudo apt update')">Copy</button></div>
+<div class="card"><h3>23. apt upgrade</h3><p>O‘rnatilgan paketlarni yangilaydi.</p><div class="example">sudo apt upgrade</div><button class="copy" onclick="copyText('sudo apt upgrade')">Copy</button></div>
+<div class="card"><h3>24. nano</h3><p>Terminalda matn muharririni ochadi.</p><div class="example">nano file.txt</div><button class="copy" onclick="copyText('nano file.txt')">Copy</button></div>
+<div class="card"><h3>25. head</h3><p>Faylning boshidagi qatorlarni ko‘rsatadi.</p><div class="example">head file.txt</div><button class="copy" onclick="copyText('head file.txt')">Copy</button></div>
+<div class="card"><h3>26. tail</h3><p>Faylning oxiridagi qatorlarni ko‘rsatadi.</p><div class="example">tail file.txt</div><button class="copy" onclick="copyText('tail file.txt')">Copy</button></div>
+<div class="card"><h3>27. wc</h3><p>Qator, so‘z va belgilar sonini hisoblaydi.</p><div class="example">wc file.txt</div><button class="copy" onclick="copyText('wc file.txt')">Copy</button></div>
+<div class="card"><h3>28. sort</h3><p>Matn qatorlarini tartiblaydi.</p><div class="example">sort names.txt</div><button class="copy" onclick="copyText('sort names.txt')">Copy</button></div>
+<div class="card"><h3>29. uniq</h3><p>Yonma-yon takrorlangan qatorlarni chiqarib tashlaydi.</p><div class="example">sort names.txt | uniq</div><button class="copy" onclick="copyText('sort names.txt | uniq')">Copy</button></div>
+<div class="card"><h3>30. exit</h3><p>Terminal sessiyasidan chiqadi.</p><div class="example">exit</div><button class="copy" onclick="copyText('exit')">Copy</button></div>
+
+</div>
+<p class="empty" id="easyEmpty">Hech narsa topilmadi.</p>
+<button class="back" onclick="showHome()">← Orqaga</button>
+</section>
+
+<!-- O'RTACHA -->
+<section id="mediumPage" class="container">
+<h1 class="page-title">O‘RTACHA LINUX COMMANDLARI</h1>
+<input class="search" id="mediumSearch" placeholder="Command qidirish..." oninput="searchCommands('mediumSearch','mediumCommands')">
+<div class="commands" id="mediumCommands"></div>
+<p class="empty" id="mediumEmpty">Hech narsa topilmadi.</p>
+<button class="back" onclick="showHome()">← Orqaga</button>
+</section>
+
+<!-- QIYIN: BURP SUITE -->
+<section id="hardPage" class="container">
+<h1 class="page-title">QIYIN — BURP SUITE</h1>
+<p style="text-align:center;color:#aaa">Burp Suite vositalarini o‘rganish</p>
+
+<div class="card">
+<h3>1. Burp Suite Proxy</h3>
+<p>Proxy brauzer va server orasidagi HTTP/HTTPS trafikni ko‘rish imkonini beradi. Brauzer Burp Proxy orqali ishlashi kerak.</p>
+<svg class="diagram" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="40" width="145" height="65" rx="9" fill="#173b2a" stroke="#00ff80"/>
+<text x="82" y="78" fill="white" text-anchor="middle">Browser</text>
+<rect x="225" y="40" width="145" height="65" rx="9" fill="#493b12" stroke="#e7b52d"/>
+<text x="297" y="78" fill="white" text-anchor="middle">Burp Proxy</text>
+<rect x="445" y="40" width="145" height="65" rx="9" fill="#173b2a" stroke="#00ff80"/>
+<text x="517" y="78" fill="white" text-anchor="middle">Web Server</text>
+<g stroke="#00ff80" stroke-width="3" fill="none">
+<path d="M155 72 H220 M212 65 L220 72 L212 79"/>
+<path d="M370 72 H440 M432 65 L440 72 L432 79"/>
+</g>
+</svg>
+<div class="example">Browser → Burp Proxy → Web Server</div>
+<p><b>Vazifasi:</b> Brauzerdan yuborilgan so‘rovlarni kuzatish.</p>
+</div>
+
+<div class="card">
+<h3>2. Intercept</h3>
+<p>Intercept yuborilayotgan so‘rovni vaqtincha ushlab turadi. Uni ko‘rish va laboratoriyada tahlil qilish mumkin.</p>
+<svg class="diagram" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="40" width="150" height="65" rx="9" fill="#173b2a" stroke="#00ff80"/>
+<text x="95" y="78" fill="white" text-anchor="middle">Browser</text>
+<rect x="225" y="40" width="150" height="65" rx="9" fill="#493b12" stroke="#e7b52d"/>
+<text x="300" y="78" fill="white" text-anchor="middle">Intercept</text>
+<rect x="430" y="40" width="150" height="65" rx="9" fill="#173b2a" stroke="#00ff80"/>
+<text x="505" y="78" fill="white" text-anchor="middle">Server</text>
+<g stroke="#e7b52d" stroke-width="3" fill="none">
+<path d="M170 72 H220 M212 65 L220 72 L212 79"/>
+<path d="M375 72 H425 M417 65 L425 72 L417 79"/>
+</g>
+<text x="300" y="130" fill="#e7b52d" text-anchor="middle" font-size="13">Request vaqtincha ushlanadi</text>
+</svg>
+<div class="example">Proxy → Intercept</div>
+<p><b>Vazifasi:</b> HTTP so‘rovlarini yuborishdan oldin ko‘rib chiqish.</p>
+</div>
+
+<div class="card">
+<h3>3. HTTP History</h3>
+<p>HTTP History brauzer va server orasida bo‘lib o‘tgan so‘rovlar tarixini ko‘rsatadi.</p>
+<svg class="diagram" viewBox="0 0 600 155" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="15" width="560" height="125" rx="8" fill="#080d0b" stroke="#00ff80"/>
+<text x="40" y="40" fill="#00ff80" font-size="15">HTTP History</text>
+<g fill="#ddd" font-size="13">
+<text x="40" y="67">GET /</text><text x="40" y="91">GET /login</text><text x="40" y="115">POST /login</text>
+<text x="420" y="67">200 OK</text><text x="420" y="91">200 OK</text><text x="420" y="115">302 Found</text>
+</g>
+</svg>
+<div class="example">Proxy → HTTP history</div>
+<p><b>Vazifasi:</b> Oldingi HTTP so‘rovlarini qayta ko‘rish.</p>
+</div>
+
+<div class="card">
+<h3>4. Repeater</h3>
+<p>Repeater tanlangan HTTP so‘rovini qayta yuborish va javobini solishtirish uchun ishlatiladi.</p>
+<svg class="diagram" viewBox="0 0 600 155" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="30" width="230" height="95" rx="8" fill="#101a14" stroke="#00ff80"/>
+<text x="135" y="55" fill="#00ff80" text-anchor="middle">Request</text>
+<text x="40" y="82" fill="#ddd" font-size="13">GET /profile HTTP/1.1</text>
+<text x="40" y="105" fill="#ddd" font-size="13">Host: lab.local</text>
+<rect x="350" y="30" width="230" height="95" rx="8" fill="#101a14" stroke="#e7b52d"/>
+<text x="465" y="55" fill="#e7b52d" text-anchor="middle">Response</text>
+<text x="370" y="85" fill="#ddd" font-size="13">HTTP/1.1 200 OK</text>
+<text x="370" y="105" fill="#ddd" font-size="13">Response body...</text>
+<path d="M250 77 H345 M337 70 L345 77 L337 84" stroke="#00ff80" stroke-width="3" fill="none"/>
+</svg>
+<div class="example">Right click → Send to Repeater</div>
+<p><b>Vazifasi:</b> Laboratoriya so‘rovlarini qayta yuborib, javoblarni tahlil qilish.</p>
+</div>
+
+<div class="card">
+<h3>5. Decoder</h3>
+<p>Decoder matnlarni Base64, URL encoding va boshqa formatlarga o‘girish yoki qayta ochish uchun ishlatiladi.</p>
+<svg class="diagram" viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="25" width="220" height="75" rx="8" fill="#173b2a" stroke="#00ff80"/>
+<text x="130" y="55" fill="white" text-anchor="middle">SGVsbG8=</text>
+<text x="130" y="78" fill="#aaa" text-anchor="middle">Base64</text>
+<path d="M250 62 H345 M337 55 L345 62 L337 69" stroke="#e7b52d" stroke-width="3" fill="none"/>
+<rect x="355" y="25" width="220" height="75" rx="8" fill="#173b2a" stroke="#00ff80"/>
+<text x="465" y="55" fill="white" text-anchor="middle">Hello</text>
+<text x="465" y="78" fill="#aaa" text-anchor="middle">Decoded</text>
+</svg>
+<div class="example">SGVsbG8= → Hello</div>
+<p><b>Vazifasi:</b> Kodlangan ma’lumotlarni tushunarli formatga aylantirish.</p>
+</div>
+
+<div class="card">
+<h3>6. Target Scope</h3>
+<p>Scope tekshirishga ruxsat berilgan laboratoriya domenlari va manzillarini belgilashga yordam beradi.</p>
+<svg class="diagram" viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="35" y="20" width="530" height="90" rx="8" fill="#101a14" stroke="#00ff80"/>
+<text x="60" y="50" fill="#00ff80" font-size="16">Target Scope</text>
+<text x="60" y="80" fill="#ddd" font-size="14">Include: lab.example.com</text>
+<text x="60" y="100" fill="#e7b52d" font-size="13">Faqat ruxsat berilgan target</text>
+</svg>
+<div class="example">Target → Scope</div>
+<p><b>Vazifasi:</b> Laboratoriya doirasini belgilash.</p>
+</div>
+
+<button class="back" onclick="showHome()">← Orqaga</button>
+</section>
+
+<footer id="about">
+<p>CYBERLEARN | Learn Linux & Cybersecurity</p>
+</footer>
+
+<script>
+const mediumData = [
+["find","Fayl va papkalarni nomi bo‘yicha qidiradi.","find /home -name file.txt"],
+["grep","Matn ichidan kerakli so‘z yoki qatorlarni qidiradi.","grep 'hello' file.txt"],
+["chmod","Fayl ruxsatlarini o‘zgartiradi.","chmod 755 script.sh"],
+["chown","Fayl egasini o‘zgartiradi.","sudo chown user file.txt"],
+["tar","Fayllarni arxivlaydi yoki arxivni ochadi.","tar -czvf archive.tar.gz folder/"],
+["zip","Fayllarni ZIP arxivga joylaydi.","zip archive.zip file.txt"],
+["unzip","ZIP arxivni ochadi.","unzip archive.zip"],
+["df","Diskdagi bo‘sh va band joyni ko‘rsatadi.","df -h"],
+["du","Fayl yoki papka egallagan joyni ko‘rsatadi.","du -sh folder/"],
+["free","Operativ xotira holatini ko‘rsatadi.","free -h"],
+["ps","Ishlayotgan jarayonlarni ko‘rsatadi.","ps aux"],
+["top","Jarayonlar va tizim resurslarini ko‘rsatadi.","top"],
+["kill","Jarayonga signal yuboradi.","kill PID"],
+["ip","Tarmoq interfeyslari va IP ma’lumotlarini ko‘rsatadi.","ip addr"],
+["ping","Tarmoq ulanishini tekshiradi.","ping -c 4 example.com"],
+["ss","Tarmoq ulanishlari va portlarni ko‘rsatadi.","ss -tuln"],
+["curl","URL manzilidan ma’lumot oladi.","curl https://example.com"],
+["wget","Internetdan fayl yuklab oladi.","wget https://example.com/file.zip"],
+["history","Buyruqlar tarixini ko‘rsatadi.","history"],
+["journalctl","Tizim jurnallarini ko‘rsatadi.","journalctl -n 50"],
+["ffuf","Ruxsatli laboratoriyada veb yo‘llarni tekshiradi.","ffuf -h"],
+["gobuster","Ruxsatli laboratoriyada veb kataloglarni qidiradi.","gobuster --help"],
+["nmap","Ruxsatli tizimlarda tarmoqni tekshiradi.","nmap -h"],
+["whatweb","Veb-sayt texnologiyalarini aniqlaydi.","whatweb https://example.com"],
+["nikto","Ruxsatli laboratoriyada veb-serverni tekshiradi.","nikto -Help"],
+["dirb","Ruxsatli laboratoriyada veb kataloglarni qidiradi.","dirb"],
+["dig","DNS yozuvlarini tekshiradi.","dig example.com"],
+["whois","Domen ma’lumotlarini ko‘rsatadi.","whois example.com"],
+["traceroute","Tarmoq yo‘nalishini ko‘rsatadi.","traceroute example.com"],
+["env","Muhit o‘zgaruvchilarini ko‘rsatadi.","env"]
+];
+
+function renderMedium(){
+    const area=document.getElementById("mediumCommands");
+    area.innerHTML="";
+    mediumData.forEach((item,i)=>{
+        const card=document.createElement("div");
+        card.className="card";
+        const title=document.createElement("h3");
+        title.textContent=(i+1)+". "+item[0];
+        const desc=document.createElement("p");
+        desc.textContent=item[1];
+        const example=document.createElement("div");
+        example.className="example";
+        example.textContent=item[2];
+        const button=document.createElement("button");
+        button.className="copy";
+        button.textContent="Copy";
+        button.onclick=()=>copyText(item[2]);
+        card.append(title,desc,example,button);
+        area.appendChild(card);
+    });
+}
+
+function hidePages(){
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("linuxPage").style.display="none";
+    document.getElementById("mediumPage").style.display="none";
+    document.getElementById("hardPage").style.display="none";
+    document.getElementById("about").style.display="none";
+}
+
+function showHome(){
+    hidePages();
+    document.getElementById("homePage").style.display="block";
+    document.getElementById("about").style.display="block";
+}
+
+function showLinux(){
+    hidePages();
+    document.getElementById("linuxPage").style.display="block";
+}
+
+function showMedium(){
+    hidePages();
+    document.getElementById("mediumPage").style.display="block";
+    renderMedium();
+}
+
+function showHard(){
+    hidePages();
+    document.getElementById("hardPage").style.display="block";
+}
+
+function searchCommands(inputId,areaId){
+    const query=document.getElementById(inputId).value.toLowerCase();
+    const cards=document.getElementById(areaId).querySelectorAll(".card");
+    let count=0;
+    cards.forEach(card=>{
+        const match=card.textContent.toLowerCase().includes(query);
+        card.style.display=match?"block":"none";
+        if(match)count++;
+    });
+    const emptyId=areaId==="easyCommands"?"easyEmpty":"mediumEmpty";
+    document.getElementById(emptyId).style.display=count===0?"block":"none";
+}
+
+function copyText(text){
+    navigator.clipboard.writeText(text).then(()=>{
+        alert("Command nusxalandi!");
+    }).catch(()=>{
+        alert("Nusxalash amalga oshmadi. Matnni qo‘lda belgilang.");
+    });
+}
+</script>
+
+</body>
+</html>
